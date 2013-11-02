@@ -18,7 +18,9 @@ python generate.py <json infile> <dot outfile>
 
 Example
 ```
-python generate.py plan.json plan.dot
+python generate.py plan.json plan.dot 		# I use python 3.3
+dot -Tsvg plan.dot -o plan.svg 				# requires 'graphviz' package to be installed
+eog plan.svg 								# eye of gnome. If you have a Gnome desktop
 ```
 
 
