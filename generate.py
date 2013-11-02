@@ -33,6 +33,9 @@ colors = {
 niceColorNames = {
 	"sourceData Source" : "Data Source",
 	"sinkData Sink" : "Data Sink",
+	"pactMatch"		: "Join",
+	"pactMap"		: "Map",
+	"pactReduce"	: "Reduce"
 }
 
 shape = {
@@ -90,7 +93,9 @@ Legend [shape=none, margin=0, label=<
 
 for element,color in colors.items():
 	el = niceColorNames.get(element,element)
-	out.write(" <TR><TD>"+el+"</TD><TD BGCOLOR=\""+color+"\"></TD></TR>")
+	if el == element:
+		print("Could not find nice name for '"+element+"'")
+	out.write(" <TR><TD>"+el+"</TD><TD BGCOLOR=\""+color+"\"></TD></TR>\n")
 
 out.write("""</TABLE>
 >];
