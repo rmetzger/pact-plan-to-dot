@@ -13,6 +13,7 @@
 import json
 import re
 import ntpath
+import sys
 
 def beautifyName(name):
 	if re.match( r'(file|hdfs):(.*)', name):
@@ -22,26 +23,34 @@ def beautifyName(name):
 # Palette taken from http://www.colourlovers.com/palette/580974/Adrift_in_Dreams (let the experts do that stuff)
 colors = {
 	"sourceData Source" 	: "#cff09e",
-	"pactMap" 		: "#a8dba8",
-	"pactReduce" 		: "#79bd9a",
-	"pactMatch" 		: "#3b8686",
-	"sinkData Sink"		: "#0b486b"
+	"pactMap" 				: "#a8dba8",
+	"pactReduce" 			: "#79bd9a",
+	"pactMatch" 			: "#3b8686",
+	"sinkData Sink"			: "#0b486b"
 }
+
 # used to create printable names for the legend
 niceColorNames = {
 	"sourceData Source" : "Data Source",
 	"sinkData Sink" : "Data Sink",
 }
+
 shape = {
 	"source"	: "doublecircle",
 	"pact"		: "box",
 	"sink"		: "folder"
 }
 
+if len(sys.argv) < 3:
+	print("Usage: \npython generate.py <json infile> <dot outfile>\n")
+	sys.exit(1)
 
-out = open('plan.dot', 'w')
+infile = sys.argv[1]
+outfile = sys.argv[2]
 
-json_data = open("plan.json")
+out = open(outfile, 'w')
+
+json_data = open(infile)
 
 data = json.load(json_data)
 
