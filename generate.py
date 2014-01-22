@@ -25,23 +25,32 @@ colors = {
 	"sourceData Source" 	: "#cff09e",
 	"pactMap" 				: "#a8dba8",
 	"pactReduce" 			: "#79bd9a",
-	"pactMatch" 			: "#3b8686",
-	"sinkData Sink"			: "#0b486b"
+	"pactJoin" 			: "#3b8686",
+	"sinkData Sink"			: "#0b486b",
+	"pactCross" 			: "#3bff86",
+	"pactCoGroup" 			: "#ff486b",
+	"pactUnion" 			: "#0b48ff",
+	"workset_iterationWorkset Iteration" : "blue"
 }
 
 # used to create printable names for the legend
 niceColorNames = {
 	"sourceData Source" : "Data Source",
 	"sinkData Sink" : "Data Sink",
-	"pactMatch"		: "Join",
+	"pactJoin"		: "Join",
 	"pactMap"		: "Map",
-	"pactReduce"	: "Reduce"
+	"pactReduce"	: "Reduce",
+	"pactCross"		: "Cross",
+	'pactUnion'		: "Union",
+	'pactCoGroup'	: "CoGroup",
+	"workset_iterationWorkset Iteration" : "Iteration"
 }
 
 shape = {
 	"source"	: "doublecircle",
 	"pact"		: "box",
-	"sink"		: "folder"
+	"sink"		: "folder",
+	"workset_iteration" : "box"
 }
 
 if len(sys.argv) < 3:
